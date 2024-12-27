@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood Detection with Lighting Effects</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+            background-color: white;
+            transition: background-color 1s ease;
+        }
+        img {
+            width: 70%;
+        }
+        /* Mood lighting colors */
+        .happy {
+            background-color: yellow;
+        }
+        .sad {
+            background-color: blue;
+        }
+        .neutral {
+            background-color: grey;
+        }
+        .angry {
+            background-color: red;
+        }
+        .surprised {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mood Detection with Lighting Effects</h1>
+    <img src="{{ url_for('video_feed') }}" id="webcam">
+
+    <script>
+        const socket = io();
+
+        // Function to update background color based on mood
+        function updateLighting(mood) {
+            document.body.className = mood.toLowerCase();  // Apply CSS class based on mood
+        }
+
+        // Listen for mood updates from the server
+        socket.on('mood_update', function(data) {
+            const mood = data.mood;
+            console.log('Detected Mood:', mood);
+            updateLighting(mood);  // Update the lighting effect based on the detected mood
+        });
+    </script>
+</body>
+</html>

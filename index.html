@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        video {
+            border: 2px solid #000;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Emotion Detection</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <p id="emotion">Emotion: Neutral</p>
+
+    <script>
+        const video = document.getElementById('video');
+        const emotion = document.getElementById('emotion');
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.error("Error accessing webcam: ", err);
+            });
+    </script>
+</body>
+</html>
