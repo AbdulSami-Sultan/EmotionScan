@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 
 ```python
 ### Step 4: Load and Prepare Data
-path = '/Users/sami/Documents/Masters Courses/MS Project/Repo/EmotionScan/prepared_dataset'
+path = '/prepared_dataset'
 # Load Data
 logger.info("Loading data...")
 train_data = np.load(os.path.join(path, "train_data.npy"))
@@ -282,7 +282,7 @@ def predict_emotion(image_path):
 ```python
 # Provide the image path
 
-image_path = '/Users/sami/Documents/Masters Courses/MS Project/Repo/EmotionScan/Notebook/testimage.jpg' #os.path.join(path, "testimage.jpg")  # Replace with your image path
+image_path = '/Notebook/testimage.jpg' #os.path.join(path, "testimage.jpg")  # Replace with your image path
 ```
 
 
@@ -294,7 +294,7 @@ except Exception as e:
     print(f"Error: {e}")
 ```
 
-    Processing image: /Users/sami/Documents/Masters Courses/MS Project/Repo/EmotionScan/Notebook/testimage.jpg
+    Processing image: /Notebook/testimage.jpg
     1/1 [==============================] - 0s 47ms/step
     The predicted emotion is: Disgust
 
@@ -711,7 +711,7 @@ except Exception as e:
     print(f"Error: {e}")
 ```
 
-    Processing image: /Users/sami/Documents/Masters Courses/MS Project/Repo/EmotionScan/Notebook/testimage.jpg
+    Processing image: /Notebook/testimage.jpg
     1/1 [==============================] - 0s 32ms/step
     The predicted emotion is: Disgust
 
